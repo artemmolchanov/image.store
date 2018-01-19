@@ -16,7 +16,12 @@ class ImageController extends Controller
 {
     public function index()
     {
-        $images = Image::latest()->get();
+        $images = Image::latest();
+
+        if ($request = request(['month', 'year'])) {
+            $images->filter($request);
+        }
+        $images = $images->get();
 
         return view('images.index', compact('images'));
     }

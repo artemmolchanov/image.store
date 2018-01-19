@@ -17,6 +17,7 @@
                 @endforeach
             </ul>
         @endif
+
         <img class="card-img-top" src="/storage/{{ $image->path }}" alt="Card image cap">
 
         <hr>

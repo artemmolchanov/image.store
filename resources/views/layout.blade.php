@@ -41,6 +41,8 @@
 
                 @yield('content')
 
+                @include('layouts.sidebar')
+
             </div>
         </div>
     </div>
