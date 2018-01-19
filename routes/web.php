@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+Route::get('/', 'ImageController@index')->name('home');
+
+Route::get('/images/create', 'ImageController@create');
+
+Route::post('/images', 'ImageController@store');
+
+Route::get('/images/{image}', 'ImageController@show');
