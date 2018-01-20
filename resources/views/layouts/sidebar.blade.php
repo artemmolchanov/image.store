@@ -1,4 +1,4 @@
-<aside class="col-sm-3 ml-sm-auto blog-sidebar">
+<aside >
 
     <div class="sidebar-module">
         <h4>Archives</h4>

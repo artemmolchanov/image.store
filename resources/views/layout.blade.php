@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -21,34 +20,35 @@
 
 @include('layouts.nav')
 
-<main role="main">
-
     <section class="jumbotron text-center">
         <div class="container">
-            <h1 class="jumbotron-heading">Album example</h1>
-            <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+            <h1 class="jumbotron-heading">Image Store</h1>
             <p>
-                <a href="#" class="btn btn-primary my-2">Main call to action</a>
-                <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+                <a href="/images/create" class="btn btn-primary my-2">Save image</a>
             </p>
         </div>
     </section>
+<div class="container">
+    <div class="row">
+<div class="col-md-10">
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row">
 
-    <div class="album py-5 bg-light">
-        <div class="container">
+                    @yield('content')
 
-            <div class="row">
 
-                @yield('content')
 
-                @include('layouts.sidebar')
-
+                </div>
             </div>
         </div>
+</div>
+
+<div class="col-md-2">
+    @include('layouts.sidebar')
+</div>
     </div>
-
-</main>
-
+</div>
 @include('layouts.footer')
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
