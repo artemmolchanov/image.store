@@ -6,4 +6,5 @@
             @include('images.image')
 
         @endforeach
+
 @endsection

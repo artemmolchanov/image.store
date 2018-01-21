@@ -10,7 +10,7 @@
             <ul>
                 @foreach($image->tags as $tag)
                     <li>
-                        <a href="/posts/tags/{{ $tag->name }}">
+                        <a href="/images/tags/{{ $tag->name }}">
                             {{ $tag->name }}
                         </a>
                     </li>

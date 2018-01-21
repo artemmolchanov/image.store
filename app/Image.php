@@ -6,11 +6,18 @@ use Carbon\Carbon;
 
 class Image extends Model
 {
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
     }
 
+    /**
+     * @param $query
+     * @param $filters
+     */
     public function scopeFilter($query, $filters)
     {
         if ($month = $filters['month']){
@@ -22,6 +29,9 @@ class Image extends Model
         }
     }
 
+    /**
+     * @return mixed
+     */
     public static function archives()
     {
         return static::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')

@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 
 use App\Image;
+use App\Tag;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image as Img;
 
@@ -34,7 +35,8 @@ class ImageController extends Controller
 
     public function create()
     {
-        return view('images.create');
+        $tags = Tag::all();
+        return view('images.create')->with('tags',$tags);
     }
 
     public function store()
@@ -55,6 +57,9 @@ class ImageController extends Controller
         $image->path = $filename;
 
         $image->save();
+
+        $image->tags()->sync(\request('tags'), false);
+
         return redirect('/');
     }
 }
