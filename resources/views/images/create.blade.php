@@ -15,7 +15,7 @@
             </div>
 
             <div class="form-group">
-                <label for="image">Image</label>
+                <label for="image">Image</label><br>
                 <input type="file" name="images"  id="image">
             </div>
 
@@ -25,10 +25,17 @@
             </div>
         </form>
 
+
+
         @include('layouts.errors')
 
     </div>
 
 
+    <div class="col-md-4">
+
+        @include('tags.create')
+
+    </div>
 
 @endsection

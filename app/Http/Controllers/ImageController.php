@@ -37,18 +37,17 @@ class ImageController extends Controller
         return view('images.create');
     }
 
-    public function store(Request $request)
+    public function store()
     {
         $image = new Image;
 
         $this->validate(request(), [
             'name' => 'required',
-            'path'  => 'required'
         ]);
 
-        $image->name = $request->name;
+        $image->name = request('name');
 
-        $images = $request->file('images');
+        $images = request()->file('images');
         $filename = time() . '.' . $images->getClientOriginalExtension();
         $location = public_path('storage/' . $filename);
         Img::make($images)->save($location);

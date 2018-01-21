@@ -13,4 +13,14 @@ class TagsController extends Controller
 
         return view('images.index', compact('images'));
     }
+
+    public function store()
+    {
+        $this->validate(request(), ['name' => 'required|max:255']);
+        $tag = new Tag;
+        $tag->name = \request('name');
+        $tag->save();
+
+        return back();
+    }
 }
