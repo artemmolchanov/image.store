@@ -14,5 +14,6 @@ Route::get('/images/tags/{tag}', 'TagsController@index');
 
 Route::group(['prefix' => 'api'], function ()
 {
-    Route::get('/tags/{tag}', 'ApiController@getImageByTag');
+    Route::get('images/tags/{tag}', 'ApiController@getImagesByTag');
+    Route::get('images/', 'ApiController@getImages');
 });
