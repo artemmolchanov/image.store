@@ -6,23 +6,17 @@
 
         <h1>{{ $image->name }}</h1>
 
-        @if(count($image->tags))
-            <ul>
+        <p class="blog-post-meta">Tags:
+            @if(count($image->tags))
                 @foreach($image->tags as $tag)
-                    <li>
-                        <a href="/images/tags/{{ $tag->name }}">
-                            {{ $tag->name }}
-                        </a>
-                    </li>
+                    <a href="/images/tags/{{ $tag->name }}" >
+                        #{{ $tag->name }}
+                    </a>
                 @endforeach
-            </ul>
-        @endif
+            @endif
+        </p>
 
-        <img class="card-img-top" src="/storage/{{ $image->path }}" alt="Card image cap">
-
-        <hr>
-
-
+        <img  src="/storage/{{ $image->path }}" alt="Card image cap" width="500">
 
     </div>
 
