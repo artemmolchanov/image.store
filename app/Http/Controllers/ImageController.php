@@ -36,7 +36,7 @@ class ImageController extends Controller
     public function create()
     {
         $tags = Tag::all();
-        return view('images.create')->with('tags',$tags);
+        return view('images.create')->with('tags', $tags);
     }
 
     public function store()
@@ -61,5 +61,27 @@ class ImageController extends Controller
         $image->tags()->sync(\request('tags'), false);
 
         return redirect('/');
+    }
+
+    public function edit(Image $image)
+    {
+        return view('images.edit', compact('image'));
+    }
+
+    public function update($id)
+    {
+        $image = Image::find($id);
+
+        $image->name = request('name');
+
+        $images = request()->file('images');
+        $filename = time() . '.' . $images->getClientOriginalExtension();
+        $location = public_path('storage/' . $filename);
+        Img::make($images)->save($location);
+        $image->path = $filename;
+        $image->save();
+        $image->tags()->sync(request('tags'), false);
+
+        return redirect()->route('images.show', compact('image'));
     }
 }
